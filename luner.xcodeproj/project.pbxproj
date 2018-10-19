@@ -15,6 +15,8 @@
 		7BC7210C2179DB61001E3899 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7210A2179DB61001E3899 /* Main.storyboard */; };
 		7BC7210E2179DB63001E3899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7210D2179DB63001E3899 /* Assets.xcassets */; };
 		7BC721112179DB63001E3899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7210F2179DB63001E3899 /* LaunchScreen.storyboard */; };
+		7BC72119217A35E2001E3899 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7BC72118217A35E2001E3899 /* Explosion.sks */; };
+		7BC7211B217A3807001E3899 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7211A217A3807001E3899 /* explosion.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		7BC7210D2179DB63001E3899 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BC721102179DB63001E3899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BC721122179DB63001E3899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BC72118217A35E2001E3899 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
+		7BC7211A217A3807001E3899 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = explosion.wav; path = Assets.xcassets/explosion.dataset/explosion.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +68,12 @@
 				7BC721022179DB61001E3899 /* GameScene.sks */,
 				7BC721042179DB61001E3899 /* Actions.sks */,
 				7BC721062179DB61001E3899 /* GameScene.swift */,
+				7BC72118217A35E2001E3899 /* Explosion.sks */,
 				7BC721082179DB61001E3899 /* GameViewController.swift */,
 				7BC7210A2179DB61001E3899 /* Main.storyboard */,
 				7BC7210D2179DB63001E3899 /* Assets.xcassets */,
 				7BC7210F2179DB63001E3899 /* LaunchScreen.storyboard */,
+				7BC7211A217A3807001E3899 /* explosion.wav */,
 				7BC721122179DB63001E3899 /* Info.plist */,
 			);
 			path = luner;
@@ -133,9 +139,11 @@
 			files = (
 				7BC7210C2179DB61001E3899 /* Main.storyboard in Resources */,
 				7BC721032179DB61001E3899 /* GameScene.sks in Resources */,
+				7BC7211B217A3807001E3899 /* explosion.wav in Resources */,
 				7BC7210E2179DB63001E3899 /* Assets.xcassets in Resources */,
 				7BC721112179DB63001E3899 /* LaunchScreen.storyboard in Resources */,
 				7BC721052179DB61001E3899 /* Actions.sks in Resources */,
+				7BC72119217A35E2001E3899 /* Explosion.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CWGS87U262;
 				INFOPLIST_FILE = luner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,6 +324,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CWGS87U262;
 				INFOPLIST_FILE = luner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
