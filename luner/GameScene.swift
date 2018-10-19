@@ -18,22 +18,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var cameraX: SKCameraNode!
     var gameOver: SKLabelNode!
     var contactSpeed: SKLabelNode!
+    var speedToShow: SKLabelNode!
     
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self
         
         makePlayer()
+        makeFloor()
         
         self.view?.showsPhysics = true
-        
         scene?.physicsWorld.gravity = CGVector(dx: 0, dy: -1.0)
-        
-        floor = SKSpriteNode(color: UIColor.red, size: CGSize(width: 400, height: 10))
-        floor.position = CGPoint(x: 0, y: -350)
-        floor.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 400, height: 10))
-        floor.physicsBody?.affectedByGravity = false
-        floor.physicsBody?.isDynamic = false
-        self.addChild(floor)
         
         do {
             let path = Bundle.main.path(forResource: "explosion" , ofType: "wav")!
@@ -46,6 +40,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         cameraX = SKCameraNode()
         scene?.camera = cameraX
+        
+        doHUD()
+    }
+    
+    func doHUD() {
+        let wait = SKAction.wait(forDuration: 1.0)
+        let runX = SKAction.run {
+            self.showSpeed()
+        }
+        run(SKAction.sequence([wait, runX]))
+        run(SKAction.repeatForever(SKAction.sequence([wait, runX])), withKey: "hud")
+    }
+    
+    func makeFloor() {
+        floor = SKSpriteNode(color: UIColor.red, size: CGSize(width: 400, height: 10))
+        floor.position = CGPoint(x: 0, y: -350)
+        floor.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 400, height: 10))
+        floor.physicsBody?.affectedByGravity = false
+        floor.physicsBody?.isDynamic = false
+        self.addChild(floor)
     }
     
     func makePlayer() {
@@ -71,7 +85,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // only tiggered if we set collisions
         
         let hitrate = contact.collisionImpulse
-        print("contact \(hitrate) \(player.physicsBody?.velocity.dy)!")
         if hitrate > 8 {
             print("contact exceeded \(contact.collisionImpulse)")
             showContact(contactNo: hitrate)
@@ -81,16 +94,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.run(SKAction.playSoundFileNamed("explosion", waitForCompletion: false))
             player.removeFromParent()
             gameover()
+            removeAction(forKey: "hud")
         }
     }
     
+    @objc func showSpeed() {
+        
+        if speedToShow == nil {
+            speedToShow = SKLabelNode(fontNamed: "HoeflerText-Italic")
+            addChild(speedToShow)
+        } else {
+            let speed2Show = (player.physicsBody?.velocity.dy)!
+            speedToShow.text = "\(speed2Show)"
+            speedToShow.fontSize = 16
+            speedToShow.fontColor = SKColor.green
+            speedToShow.position = CGPoint(x: frame.midX, y: (scene?.frame.minY)!/2 - 96)
+        }
+        
+    }
+    
     func showContact(contactNo: CGFloat) {
-        contactSpeed = SKLabelNode(fontNamed: "HoeflerText-Italic")
-        contactSpeed.text = "\(contactNo)"
-        contactSpeed.fontSize = 16
-        contactSpeed.fontColor = SKColor.green
-        contactSpeed.position = CGPoint(x: frame.midX, y: (scene?.frame.minY)!/2 - 48)
-        addChild(contactSpeed)
+        if contactSpeed == nil {
+            contactSpeed = SKLabelNode(fontNamed: "HoeflerText-Italic")
+            addChild(contactSpeed)
+        } else {
+            contactSpeed.text = "\(contactNo)"
+            contactSpeed.fontSize = 16
+            contactSpeed.fontColor = SKColor.green
+            contactSpeed.position = CGPoint(x: frame.midX, y: (scene?.frame.minY)!/2 - 48)
+        }
+        
     }
     
     func gameover() {
@@ -122,7 +155,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if gameOver.parent != nil {
                 makePlayer()
                 gameOver.removeFromParent()
+                gameOver = nil
                 contactSpeed.removeFromParent()
+                doHUD()
             }
         }
         // continous force over time
@@ -160,6 +195,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let rateOfDecent = (player.physicsBody?.velocity.dy)!
         let speedOfDecent = (player.physicsBody?.angularVelocity)!
         print("\(rateOfDecent) \(speedOfDecent)")
+        
     }
     
 }
