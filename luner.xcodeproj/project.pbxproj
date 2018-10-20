@@ -17,6 +17,7 @@
 		7BC721112179DB63001E3899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7210F2179DB63001E3899 /* LaunchScreen.storyboard */; };
 		7BC72119217A35E2001E3899 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7BC72118217A35E2001E3899 /* Explosion.sks */; };
 		7BC7211B217A3807001E3899 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BC7211A217A3807001E3899 /* explosion.wav */; };
+		7BC7211D217B8BF2001E3899 /* TouchableSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC7211C217B8BF2001E3899 /* TouchableSpriteNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7BC721122179DB63001E3899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BC72118217A35E2001E3899 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		7BC7211A217A3807001E3899 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = explosion.wav; path = Assets.xcassets/explosion.dataset/explosion.wav; sourceTree = "<group>"; };
+		7BC7211C217B8BF2001E3899 /* TouchableSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchableSpriteNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				7BC721022179DB61001E3899 /* GameScene.sks */,
 				7BC721042179DB61001E3899 /* Actions.sks */,
 				7BC721062179DB61001E3899 /* GameScene.swift */,
+				7BC7211C217B8BF2001E3899 /* TouchableSpriteNode.swift */,
 				7BC72118217A35E2001E3899 /* Explosion.sks */,
 				7BC721082179DB61001E3899 /* GameViewController.swift */,
 				7BC7210A2179DB61001E3899 /* Main.storyboard */,
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC7211D217B8BF2001E3899 /* TouchableSpriteNode.swift in Sources */,
 				7BC721072179DB61001E3899 /* GameScene.swift in Sources */,
 				7BC721092179DB61001E3899 /* GameViewController.swift in Sources */,
 				7BC721012179DB61001E3899 /* AppDelegate.swift in Sources */,
