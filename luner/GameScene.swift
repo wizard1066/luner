@@ -25,6 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, BoxDelegate {
     var speedToShow: SKLabelNode!
     var gestureAction = false
     var solarWind: UIFieldBehavior!
+    var mainfire: SKEmitterNode?
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -43,6 +44,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, BoxDelegate {
         enableGestures()
         preloadSound()
 
+        // example of serious BUG in iOS
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             print("now")
             self.solarWind = UIFieldBehavior.radialGravityField(position: CGPoint(x: -320, y: 0))
@@ -51,7 +53,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, BoxDelegate {
             self.solarWind.falloff = 2
             self.solarWind.minimumRadius = 0.05
             self.animator = UIDynamicAnimator(referenceView: self.view!)
-            self.animator?.setValue(true, forKey: "debugEnabled")
+            self.animator.setValue(true, forKey: "debugEnabled")
             self.animator.addBehavior(self.solarWind)
         }
     }
@@ -81,8 +83,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, BoxDelegate {
         let floorTexture = SKTexture(image: UIImage(named:"floor")!)
         let floorImage = UIImage(named:"floor")
         floor = SKSpriteNode(imageNamed: "floor")
-        print("stop")
-        floor.physicsBody = SKPhysicsBody(texture: floorTexture, alphaThreshold: 0, size: (floorImage?.size)!)
+        floor.physicsBody = SKPhysicsBody(texture: floorTexture, alphaThreshold: 0.5, size: (floorImage?.size)!)
+//        floor.physicsBody = SKPhysicsBody(texture: floorTexture,
+//                                          size: CGSize(width: floorTexture.size().width,
+//                                                       height: floorTexture.size().height))
         floor.position = CGPoint(x: 0, y: -350)
 //        floor.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 400, height: 10))
         floor.physicsBody?.affectedByGravity = false
@@ -115,14 +119,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, BoxDelegate {
         player.name = "lunar"
         player.isUserInteractionEnabled = true
         
+        
         self.addChild(player)
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
         // only tiggered if we set collisions
-        
+        mainfire?.removeFromParent()
+        mainfire = nil
         let hitrate = contact.collisionImpulse
-        if hitrate > 512 {
+        if hitrate > 6 {
             // zRotation result is in radians shows rotation of player sprite
             print("contact exceeded \(contact.collisionImpulse) \(player.zRotation)")
             showContact(contactNo: hitrate)
@@ -203,6 +210,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, BoxDelegate {
         player.texture = SKTexture(image:UIImage(named:"player_frame2")!)
         // one time application
         player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 16))
+        if mainfire == nil {
+            mainfire = SKEmitterNode(fileNamed: "MainFire")!
+            mainfire!.position = CGPoint(x: 0, y: -30)
+            player.addChild(mainfire!)
+        }
+        
         if gameOver != nil {
             if gameOver.parent != nil {
                 makePlayer()

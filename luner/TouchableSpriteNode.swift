@@ -29,7 +29,6 @@ class TouchableSpriteNode : SKSpriteNode
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //        player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 4))
-        print("WTF")
         boxDelegate.boxSwiped(box: self)
     }
     
