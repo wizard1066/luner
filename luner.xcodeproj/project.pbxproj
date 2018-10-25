@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7B042BEB217E232F00175901 /* MainFire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7B042BEA217E232F00175901 /* MainFire.sks */; };
+		7B042C2521808A1E00175901 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7B042C2421808A1E00175901 /* MyParticle.sks */; };
+		7B042C5121824AB800175901 /* pointX.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B042C5021824AB700175901 /* pointX.png */; };
 		7BC721012179DB61001E3899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC721002179DB61001E3899 /* AppDelegate.swift */; };
 		7BC721032179DB61001E3899 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7BC721022179DB61001E3899 /* GameScene.sks */; };
 		7BC721052179DB61001E3899 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7BC721042179DB61001E3899 /* Actions.sks */; };
@@ -23,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		7B042BEA217E232F00175901 /* MainFire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainFire.sks; sourceTree = "<group>"; };
+		7B042C2421808A1E00175901 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		7B042C5021824AB700175901 /* pointX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointX.png; sourceTree = "<group>"; };
 		7BC720FD2179DB60001E3899 /* luner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = luner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC721002179DB61001E3899 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BC721022179DB61001E3899 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 				7BC721022179DB61001E3899 /* GameScene.sks */,
 				7BC721042179DB61001E3899 /* Actions.sks */,
 				7BC721062179DB61001E3899 /* GameScene.swift */,
+				7B042C2421808A1E00175901 /* MyParticle.sks */,
 				7B042BEA217E232F00175901 /* MainFire.sks */,
 				7BC7211C217B8BF2001E3899 /* TouchableSpriteNode.swift */,
 				7BC72118217A35E2001E3899 /* Explosion.sks */,
@@ -81,6 +86,7 @@
 				7BC7210F2179DB63001E3899 /* LaunchScreen.storyboard */,
 				7BC7211A217A3807001E3899 /* explosion.wav */,
 				7BC721122179DB63001E3899 /* Info.plist */,
+				7B042C5021824AB700175901 /* pointX.png */,
 			);
 			path = luner;
 			sourceTree = "<group>";
@@ -144,9 +150,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BC7210C2179DB61001E3899 /* Main.storyboard in Resources */,
+				7B042C5121824AB800175901 /* pointX.png in Resources */,
 				7BC721032179DB61001E3899 /* GameScene.sks in Resources */,
 				7BC7211B217A3807001E3899 /* explosion.wav in Resources */,
 				7BC7210E2179DB63001E3899 /* Assets.xcassets in Resources */,
+				7B042C2521808A1E00175901 /* MyParticle.sks in Resources */,
 				7BC721112179DB63001E3899 /* LaunchScreen.storyboard in Resources */,
 				7BC721052179DB61001E3899 /* Actions.sks in Resources */,
 				7B042BEB217E232F00175901 /* MainFire.sks in Resources */,
