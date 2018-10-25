@@ -212,7 +212,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, BoxDelegate {
             }
             let waitAction = SKAction.wait(forDuration: 4)
             let fadeOut = SKAction.fadeOut(withDuration: 4)
-            let sequence = SKAction.sequence([explode, waitAction, fadeOut])
+            let sequence = SKAction.sequence([explode, waitAction])
             player.run(sequence)
 //            player.removeFromParent()
             gameover()
